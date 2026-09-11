@@ -1,8 +1,6 @@
 # MineralSAM
 
-Reference implementation for **MineralSAM: A multi-domain generalist model for
-class-agnostic grain instance segmentation and quantitative petrographic
-analysis of rock thin sections**.
+Reference implementation for **MineralSAM: A Multi-Domain Generalist Model for Grain Instance Segmentation and Quantitative Petrographic Analysis of Rock Thin Sections**.
 
 MineralSAM uses a YOLO26 segmentation model (MineralPose) to generate a coarse
 mask for each grain and passes each mask to SAM as a spatial prompt for boundary
