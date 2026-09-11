@@ -1,0 +1,8 @@
+# Split by original thin section before tiling to prevent spatial leakage.
+path: /absolute/path/to/new_domain
+train: images/train.txt
+val: images/val.txt
+test: images/test.txt
+names:
+  0: grain
+

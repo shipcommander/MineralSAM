@@ -1,0 +1,4 @@
+tile_id,source_dataset,country_or_basin,lithology,modality,slide_id,split
+synthetic_train_000,synthetic_demo,synthetic,artificial,PPL-like,demo_slide_train_00,train
+synthetic_val_000,synthetic_demo,synthetic,artificial,PPL-like,demo_slide_val_00,val
+

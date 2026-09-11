@@ -1,0 +1,52 @@
+# Few-shot new-domain adaptation used by the released implementation.
+task: segment
+mode: adapter
+weights: weights/mineralsam_generalist.pt
+data: configs/new_domain.example.yaml
+project: runs
+name: adapter_afss
+
+adapter:
+  enabled: true
+  target_layers: auto
+  bottleneck_ratio: dynamic
+  residual_scale: 0.25
+  output_init_std: 0.001
+  weight_decay: 0.0001
+  train_segment_head: false
+  freeze_batchnorm: true
+
+afss:
+  enabled: true
+  warmup_epochs: 5
+  easy_threshold: 0.85
+  hard_threshold: 0.55
+  easy_fraction: 0.02
+  moderate_fraction: 0.40
+  easy_review_interval: 10
+  moderate_review_interval: 3
+  update_interval: 5
+  seed: 20260318
+
+train:
+  epochs: 35
+  batch: 8
+  imgsz: 512
+  optimizer: AdamW
+  lr0: 0.000015
+  lrf: 0.1
+  weight_decay: 0.0001
+  warmup_epochs: 5
+  patience: 0
+  cos_lr: true
+  amp: true
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  scale: 0.0
+  translate: 0.0
+  degrees: 0.0
+  fliplr: 0.0
+  flipud: 0.0
+  workers: 0
+  device: 0

@@ -1,0 +1,6 @@
+experiment,n_fields,trainable_percent,new_domain_ap50,source_domain_ap50,source_drop_pp
+zero_shot,0,0.0,74.6,92.1,0.0
+full_finetuning,10,100.0,89.2,83.8,8.3
+adapter,10,4.6,88.7,90.5,1.6
+adapter_afss,10,4.6,90.1,91.3,0.8
+

@@ -1,0 +1,8 @@
+# Replace `path` with the local MineralInst root.
+path: /absolute/path/to/MineralInst
+train: images/train.txt
+val: images/val.txt
+test: images/test.txt
+names:
+  0: grain
+

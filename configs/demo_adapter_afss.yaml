@@ -1,0 +1,44 @@
+task: segment
+mode: adapter
+weights: yolo26n-seg.pt
+data: data/demo/dataset.yaml
+project: runs
+name: demo_adapter_afss
+
+adapter:
+  enabled: true
+  target_layers: auto
+  bottleneck_ratio: 0.25
+  residual_scale: 0.25
+  output_init_std: 0.001
+  weight_decay: 0.0001
+  train_segment_head: true
+  segment_head_lr_ratio: 0.03
+  freeze_batchnorm: true
+
+afss:
+  enabled: true
+  warmup_epochs: 0
+  easy_threshold: 0.85
+  hard_threshold: 0.55
+  easy_fraction: 0.02
+  moderate_fraction: 0.40
+  easy_review_interval: 10
+  moderate_review_interval: 3
+  update_interval: 1
+  seed: 20260318
+
+train:
+  epochs: 1
+  batch: 2
+  imgsz: 256
+  optimizer: AdamW
+  lr0: 0.0001
+  weight_decay: 0.0001
+  warmup_epochs: 0
+  amp: false
+  device: cpu
+  workers: 0
+  plots: false
+  verbose: false
+

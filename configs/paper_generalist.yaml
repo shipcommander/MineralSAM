@@ -1,0 +1,39 @@
+# Section 5.1 settings for multi-source generalist training.
+task: segment
+mode: generalist
+weights: yolo26x-seg.pt
+data: configs/mineralinst.example.yaml
+project: runs
+name: paper_generalist
+
+adapter:
+  enabled: false
+
+afss:
+  enabled: true
+  warmup_epochs: 5
+  easy_threshold: 0.85
+  hard_threshold: 0.55
+  easy_fraction: 0.02
+  moderate_fraction: 0.40
+  easy_review_interval: 10
+  moderate_review_interval: 3
+  update_interval: 5
+  seed: 20260318
+
+train:
+  epochs: 100
+  batch: 32
+  imgsz: 512
+  optimizer: AdamW
+  lr0: 0.0001
+  lrf: 0.01
+  weight_decay: 0.0001
+  warmup_epochs: 5
+  cos_lr: true
+  amp: true
+  device: "0,1,2,3"
+  workers: 8
+  seed: 42
+  deterministic: true
+

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mineralsam"
+version = "0.1.0"
+description = "Class-agnostic grain instance segmentation with parameter-efficient domain adaptation and AFSS"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy>=1.24,<3",
+  "opencv-python>=4.8",
+  "Pillow>=10",
+  "PyYAML>=6",
+  "scipy>=1.10",
+  "torch>=2.2",
+  "ultralytics==8.4.42",
+]
+
+[project.optional-dependencies]
+sam = ["segment-anything @ git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588"]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+mineralsam = "mineralsam.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mineralsam*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
